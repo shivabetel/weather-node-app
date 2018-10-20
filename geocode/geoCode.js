@@ -1,11 +1,13 @@
 const axios = require('axios');
 
 
+const googleApiKey = '';
+
 const getGeoCode = (address) => {
     var encodeAddress = encodeURIComponent(address);
     console.log('encodeAddress', encodeAddress);
     return new Promise((resolve, reject) => {
-        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeAddress}&key=AIzaSyBxoaFaoyvQTTgy99h1ymyMIGkijAGoRUE`).then((response) => {
+        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeAddress}&key=${googleApiKey}`).then((response) => {
             //console.log(JSON.stringify(response.data, undefined, 2));
             if(response && response.data){
                 if(response.data.status === 'ZERO_RESULTS'){

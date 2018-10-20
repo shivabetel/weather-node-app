@@ -1,9 +1,10 @@
 const axios = require('axios');
 
+const apiKey = ''
 
 const getWeatherInfo = (lat, lng) => {
    return new Promise((resolve, reject) => {
-      axios.get(`https://api.darksky.net/forecast/7b2199852ee91ffc6f7af771b4390df4/${lat},${lng}`).then((response) => {
+      axios.get(`https://api.darksky.net/forecast/${apiKey}/${lat},${lng}`).then((response) => {
           if(response.data){
               resolve({
                   temparature: response.data.currently.temperature,
